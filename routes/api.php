@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\TypologyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource("projects", ProjectController::class);
+Route::get('/projects-by-typology/{typology_id}', [ProjectController::class, 'projectsByTypology']);
+
+Route::apiResource("typologies", TypologyController::class)->only(["show"]);
